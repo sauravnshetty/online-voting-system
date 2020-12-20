@@ -1,10 +1,16 @@
 package com.dbmsproject.votingsystem.model;
 
+
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
@@ -19,17 +25,17 @@ public class Election {
 	
 	@NotNull
 	private String ename;
-
-//	@NotNull
-//	@Column(columnDefinition = "varchar(255) DEFAULT NULL")
-//	private String admin;
 	
-//	@ManyToOne
-//	@JoinColumn(name="admin")
-//	private User admin;
+	@ManyToOne
+	@JoinColumn(name="admin")
+	private User admin;
 	
-	@NotNull
-    private String admin;
+	@OneToMany(mappedBy="election")
+	List<Candidate> candidateList;
+	
+	@OneToMany(mappedBy="election")
+	List<Voter> voterList;
+	
 
 	@NotNull
 	private Integer noOfCandidates;
@@ -44,7 +50,7 @@ public class Election {
 	String ePassword;
 	
 
-	public Election(@NotNull Integer eid, @NotNull String ename, String admin, @NotNull Integer noOfCandidates,
+	public Election(@NotNull Integer eid, @NotNull String ename, User admin, @NotNull Integer noOfCandidates,
 			@NotNull Integer noOfVoters, @NotNull Boolean eStatus, String ePassword) {
 		super();
 		this.eid = eid;
@@ -72,11 +78,11 @@ public class Election {
 		this.ename = ename;
 	}
 
-	public String getAdmin() {
+	public User getAdmin() {
 		return admin;
 	}
 
-	public void setAdmin(String admin) {
+	public void setAdmin(User admin) {
 		this.admin = admin;
 	}
 

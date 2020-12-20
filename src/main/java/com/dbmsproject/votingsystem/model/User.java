@@ -1,12 +1,16 @@
 package com.dbmsproject.votingsystem.model;
 
+import java.util.List;
+
 //import java.util.HashSet;
 //import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 //import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 public class User {
@@ -15,8 +19,17 @@ public class User {
 	@NotNull
 	private String username;
 	
-//	  @OneToMany(mappedBy = "admin")
-//    private Set<Election> elections = new HashSet<>();
+	@OneToMany(mappedBy="voter")
+	List<Voter> votes;
+	
+	@OneToMany(mappedBy="candidateUser")
+	List<Candidate> candidateIn;
+	
+	@OneToMany(mappedBy="admin")
+	List<Election> electionsCreated;
+	
+	@OneToMany(mappedBy="candidate")
+	List<Voter> votedBy;
 
 	@NotNull
 	private String name;

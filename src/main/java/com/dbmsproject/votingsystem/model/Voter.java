@@ -2,6 +2,9 @@ package com.dbmsproject.votingsystem.model;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 //import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -11,13 +14,25 @@ public class Voter {
 	@EmbeddedId
 	private CandidateVoterId voterId;
 	
-	@NotNull
-	private String cid;
+	@MapsId("username")
+	@JoinColumn(name="voterid")
+	@ManyToOne
+	private User voter;
 
-	public Voter(CandidateVoterId voterId, @NotNull String cid) {
+	@MapsId("eid")
+	@JoinColumn(name="electionid")
+	@ManyToOne
+	private Election election;
+	
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name="candidateid")
+	private User candidate;
+
+	public Voter(CandidateVoterId voterId, @NotNull User cid) {
 		super();
 		this.voterId = voterId;
-		this.cid = cid;
+		this.candidate = cid;
 	}
 
 	public CandidateVoterId getVoterId() {
@@ -28,12 +43,12 @@ public class Voter {
 		this.voterId = voterId;
 	}
 
-	public String getCid() {
-		return cid;
+	public User getCid() {
+		return candidate;
 	}
 
-	public void setCid(String cid) {
-		this.cid = cid;
+	public void setCid(User cid) {
+		this.candidate = cid;
 	}
 	
 }
