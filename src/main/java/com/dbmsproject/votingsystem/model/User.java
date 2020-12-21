@@ -19,6 +19,9 @@ public class User {
 	@NotNull
 	private String username;
 	
+	@NotNull
+	private String password;
+	
 	@OneToMany(mappedBy="voter")
 	List<Voter> votes;
 	
