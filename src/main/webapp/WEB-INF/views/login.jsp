@@ -6,6 +6,7 @@
 <head>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/style.css">
 	<title>Login</title>
 	<script>
           function clearP() {
@@ -28,7 +29,7 @@
 
 <body>
 
-	<nav class="navbar navbar-light bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-light">
 		<div class="container">
 		  <a class="navbar-brand" href="#">Voting System</a>
 		  <form class="justify-content-end">
@@ -43,14 +44,14 @@
 		<h3>Login</h3>
 		<hr>
 		
-		<form action="" method="POST">
+		<form action="authorise" method="POST">
 		  <div class="form-group">
 		    <label for="inputUsername">Username</label>
-		    <input type="text" name="username" class="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter Username">
+		    <input type="text" name="username" class="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter Username" required>
 		  </div>
 		  <div class="form-group">
 		    <label for="InputPassword">Password</label>
-		    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Password">
+		    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Password" required>
 		    <input type="checkbox" style="margin-top: 10px;" onclick="showPassword()" id="icon1">
             	<label for="icon1">Show Password</label>
 		  </div>

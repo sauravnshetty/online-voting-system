@@ -1,4 +1,4 @@
-package com.dbmsproject.votingsystem.dba;
+package com.dbmsproject.votingsystem.doa;
 
 import org.springframework.data.repository.CrudRepository;
 

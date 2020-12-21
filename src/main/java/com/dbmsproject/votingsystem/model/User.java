@@ -46,10 +46,18 @@ public class User {
 	@NotNull
 	private String email;
 	
+	public User() {
+		this.username = null;
+		this.name = null;
+		this.age = null;
+		this.phone = null;
+		this.email = null;
+	}
 	
-	public User(String username, String name, Integer age, String phone, String email) {
+	public User(String username, String password, String name, Integer age, String phone, String email) {
 		super();
 		this.username = username;
+		this.password = password;
 		this.name = name;
 		this.age = age;
 		this.phone = phone;
@@ -95,11 +103,21 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", name=" + name + ", age=" + age + ", phone=" + phone + ", email="
-				+ email + "]";
+				+ email + ", password=" + password + "]";
 	}
 
 }

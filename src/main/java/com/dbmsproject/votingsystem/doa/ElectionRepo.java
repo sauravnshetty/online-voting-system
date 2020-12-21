@@ -1,7 +1,8 @@
-package com.dbmsproject.votingsystem.dba;
+package com.dbmsproject.votingsystem.doa;
+
+import org.springframework.data.repository.CrudRepository;
 
 import com.dbmsproject.votingsystem.model.*;
-import org.springframework.data.repository.CrudRepository;
 
 public interface ElectionRepo extends CrudRepository<Election, Integer> {
 
