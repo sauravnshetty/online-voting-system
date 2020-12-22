@@ -21,7 +21,7 @@
 		  <a class="navbar-brand" href="#">Voting System</a>
 		  <form class="justify-content-end">
 		    <!-- <button class="btn btn-outline-success me-2" style="margin-right: 10px" type="button">Main button</button> -->
-		    <button class="btn btn-sm btn-outline-secondary" onclick="load('login')" style="margin-right: 10px" type="button">Login</button>
+		    <button class="btn btn-sm btn-outline-secondary" onclick="load('/')" style="margin-right: 10px" type="button">Login</button>
 		  </form>
 	  	</div>
 	</nav>
@@ -57,7 +57,7 @@
 			    	<input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" required>
 			    </div>
 			</div>
-		
+			<p>${msg} </p>
 			<button type="submit" class="btn btn-primary" name="submit">Sign in</button>
 		</form>
 	</div>
