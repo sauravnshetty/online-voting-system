@@ -49,6 +49,14 @@ public class Election {
 	@Column(columnDefinition = "varchar(255) DEFAULT NULL")
 	String ePassword;
 	
+	public Election() {
+		this.eid = null;
+		this.ename = null;
+		this.admin = null;
+		this.noOfCandidates = null;
+		this.noOfVoters = null;
+		this.eStatus = null;
+	}
 
 	public Election(@NotNull Integer eid, @NotNull String ename, User admin, @NotNull Integer noOfCandidates,
 			@NotNull Integer noOfVoters, @NotNull Boolean eStatus, String ePassword) {
@@ -57,7 +65,7 @@ public class Election {
 		this.ename = ename;
 		this.admin = admin;
 		this.noOfCandidates = noOfCandidates;
-		this.noOfVoters = noOfVoters;
+		this.noOfVoters = 0;
 		this.eStatus = eStatus;
 		this.ePassword = ePassword;
 	}

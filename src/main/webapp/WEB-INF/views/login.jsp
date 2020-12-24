@@ -47,7 +47,8 @@
 		<form action="authorise" method="POST">
 		  <div class="form-group">
 		    <label for="inputUsername">Username</label>
-		    <input type="text" name="username" class="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter Username" required>
+		    <input type="text" name="username" class="form-control" id="inputUsername" pattern="[a-z0-9._]+"
+		    aria-describedby="emailHelp" placeholder="Enter Username" required>
 		  </div>
 		  <div class="form-group">
 		    <label for="InputPassword">Password</label>
@@ -56,9 +57,12 @@
             	<label for="icon1">Show Password</label>
 		  </div>
 		
+		  <p class="error-font">${msg}</p>
+		
 		  <div class="form-group">
                <input type="submit" name="loggedin" class="btn btn-primary" value="Log in">
 		  </div>
+		  
 		</form>
 			
 	</div>

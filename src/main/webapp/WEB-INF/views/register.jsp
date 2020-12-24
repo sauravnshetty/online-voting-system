@@ -38,7 +38,8 @@
 			    </div>
 			    <div class="form-group col-md-6">
 			    	<label for="inputUsername">Username</label>
-			    	<input type="text" class="form-control" name="username" id="inputUsername" placeholder="Username" required>
+			    	<input type="text" pattern="[a-z0-9._]+" title="Must contain only lowercase letters, numbers, . or _"
+			    	class="form-control" name="username" id="inputUsername" placeholder="Username" required>
 			    </div>
 			    <div class="form-group col-md-6">
 			    	<label for="inputAge">Age</label>
@@ -46,7 +47,7 @@
 			    </div>
 			    <div class="form-group col-md-6">
 			    	<label for="inputEmail">Email</label>
-			    	<input type="text" class="form-control" name ="email" id="inputEmail" placeholder="Email" required>
+			    	<input type="email" class="form-control" name ="email" id="inputEmail" placeholder="Email" required>
 			    </div>
 			    <div class="form-group col-md-6">
 			    	<label for="inputPhone">Phone no</label>
@@ -57,7 +58,7 @@
 			    	<input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" required>
 			    </div>
 			</div>
-			<p>${msg} </p>
+			<p class="error-font">${msg} </p>
 			<button type="submit" class="btn btn-primary" name="submit">Sign in</button>
 		</form>
 	</div>

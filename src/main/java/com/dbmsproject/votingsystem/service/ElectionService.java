@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dbmsproject.votingsystem.doa.ElectionRepo;
 import com.dbmsproject.votingsystem.model.Election;
+import com.dbmsproject.votingsystem.model.User;
 
 @Service
 public class ElectionService {
@@ -16,5 +17,9 @@ public class ElectionService {
 	
 	public List<Election> getAllElections() {
 		return (List<Election>)electionRepo.findAll();
+	}
+	
+	public Election save(Election newElection) {
+		return electionRepo.save(newElection);
 	}
 }

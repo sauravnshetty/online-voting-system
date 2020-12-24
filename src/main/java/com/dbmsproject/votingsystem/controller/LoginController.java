@@ -51,13 +51,13 @@ public class LoginController {
 			return new ModelAndView("login").addObject("msg", msg);
 		}
 		else if(!user.getUsername().equals(username) || !user.getPassword().equals(password)) {
-			msg = "Incorrect Username/Password";
+			msg = "Invalid Username/Password";
 			System.out.println(msg);
 			return new ModelAndView("login").addObject("msg", msg);
 		}
 		
 		session = request.getSession();
-		session.setAttribute("authorised", user);
+		session.setAttribute("user", user);
 		
 		
 		home.addObject("user", user);

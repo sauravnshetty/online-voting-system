@@ -15,3 +15,44 @@
     text-transform: uppercase;
     z-index: 99;
 }
+
+.error-font {
+	color: red;
+}
+
+.intro-section {
+	background-color : #764abc;
+    background-size:100% 100%;
+    height:55vh;
+    z-index: -1;
+    display:flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items:center;
+}
+
+.intro-quote {
+	font-size: 1.5rem;
+    font-family :  'Ubuntu', sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color : white;
+}
+
+.intro-content {
+
+}
+.intro-button {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.custom-table {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
