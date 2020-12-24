@@ -22,4 +22,8 @@ public class ElectionService {
 	public Election save(Election newElection) {
 		return electionRepo.save(newElection);
 	}
+	
+	public List<Election> getByAdmin(User admin) {
+		return (List<Election>)electionRepo.findByAdmin(admin);
+	}
 }

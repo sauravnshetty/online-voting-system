@@ -43,7 +43,6 @@ public class LoginController {
 		ModelAndView home = new ModelAndView("home");
 		
 		User user = userService.findById(username);
-		System.out.println(user);
 		String msg;
 		if(user.getUsername() == null) {
 			msg = "Invalid User";
@@ -58,6 +57,7 @@ public class LoginController {
 		
 		session = request.getSession();
 		session.setAttribute("user", user);
+		System.out.println(session.getAttribute("user"));
 		
 		
 		home.addObject("user", user);

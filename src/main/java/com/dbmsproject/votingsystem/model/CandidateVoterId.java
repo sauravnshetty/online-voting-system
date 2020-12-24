@@ -12,6 +12,11 @@ public class CandidateVoterId implements Serializable {
 	private String username;
 	private Integer eid;
 	
+	public CandidateVoterId() {
+		username = null;
+		eid = null;
+	}
+	
 	public CandidateVoterId(String username, Integer eid) {
 		super();
 		this.username = username;

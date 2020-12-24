@@ -34,10 +34,18 @@ public class Candidate {
 	
 	
 	
+	public Candidate() {
+		this.candidateId = null;
+		this.election = null;
+		this.candidateUser = null;
+		this.noOfVotes = null;
+	}
 
-	public Candidate(CandidateVoterId candidateId, @NotNull Integer noOfVotes) {
+	public Candidate(CandidateVoterId candidateId, Election election, User candidateUser, @NotNull Integer noOfVotes) {
 		super();
 		this.candidateId = candidateId;
+		this.election = election;
+		this.candidateUser = candidateUser;
 		this.noOfVotes = noOfVotes;
 	}
 	

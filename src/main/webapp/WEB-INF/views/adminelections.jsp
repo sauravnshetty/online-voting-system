@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/style.css">
-	<title>Home</title>
+	<title>${user.getName()}'s Elections</title>
 	<script>
           function clearP() {
               document.getElementById("demo1").innerHTML="";
@@ -18,7 +18,6 @@
           }
     </script>
 </head>
-
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light">
 		<div class="container">
@@ -30,40 +29,28 @@
 		  </form>
 	  	</div>
 	</nav>
-	
-	<div class="intro-section">
-		<div class="intro-content">
-			<p class="intro-quote">Your vote matters!</p>
-			<br>
-			<div class="intro-button">
-				<button type="button" onclick="load('create')" class="btn btn-primary btn-lg">Create Election</button>
-				<br>
-				<button type="button" onclick="load('adminelections')" class="btn btn-secondary btn-sm">My elections</button>
-			</div>
-		</div> 
-	</div>
-	
+	<br>
+	<br>
 	<div class="custom-table">
 		<table class="table table-hover">
 			<thead>
 			    <tr>
 			      <th scope="col">#</th>
 			      <th scope="col">Election Name</th>
-			      <th scope="col">Admin</th>
+			      <th scope="col"></th>
 			    </tr>
 			</thead>			   
 		    <tbody>
-			   	<c:forEach var="ele" items="${electionList}">
-			   		
-					<tr onclick="load('showelection?id=${ele.getEid()}')">
+			   	<c:forEach var="ele" items="${adminElectionList}">
+					<tr>
 						<td>${ele.getEid()}</td>
 						<td>${ele.getEname()}</td>
-						<td>${ele.getAdmin().getUsername()}</td>
+						<td><button type="button" onclick="load('showresults?eid=${ele.getEid()}')" class="btn btn-outline-success">Show Results</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	
+
 </body>
 </html>

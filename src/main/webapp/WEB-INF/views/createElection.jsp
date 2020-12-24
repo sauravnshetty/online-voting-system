@@ -23,7 +23,7 @@
 		<div class="container">
 		  <a class="navbar-brand" href="#">Voting System</a>
 		  <form class="justify-content-end">
-		  	<span>Welcome, ${user.name}</span>
+		  	<span class="show-username">${user.name}</span>
 		    <!-- <button class="btn btn-outline-success me-2" style="margin-right: 10px" type="button">Main button</button> -->
 		    <button class="btn btn-sm btn-outline-secondary" onclick="load('/')" style="margin-right: 10px" type="button">Logout</button>
 		  </form>
