@@ -28,11 +28,24 @@ public class HomeController {
 	@Autowired
 	CandidateService candidateService;
 
-	@RequestMapping(value="/vote", method=RequestMethod.GET)
-	public ModelAndView showVotePage(@RequestParam("id") Integer eid, HttpServletRequest request) {
+	@RequestMapping(value="/vote", method=RequestMethod.POST)
+	public ModelAndView showVotePage(@RequestParam("id") Integer eid, @RequestParam("password") String password, HttpServletRequest request) {
+		
+		if(request.getSession().getAttribute("user") == null) {
+			return new ModelAndView("login");
+		}
+		
 		ModelAndView electionView = new ModelAndView();
 		
 		Election election =  electionService.getById(eid);
+		
+		if(!election.getePassword().equals(password)) {
+			electionView.setViewName("promptpassword");
+			String msg = "Password Incorrect";
+			electionView.addObject("msg", msg);
+			return electionView;
+		}
+		
 		List<Candidate> candidateList = candidateService.getByElection(election);
 		electionView.addObject("election", election);
 		electionView.addObject("candidateList", candidateList);
@@ -71,6 +84,11 @@ public class HomeController {
 	
 	@RequestMapping(value="/create")
 	public ModelAndView showCreate(HttpServletRequest request) {
+		
+		if(request.getSession().getAttribute("user") == null) {
+			return new ModelAndView("login");
+		}
+		
 		System.out.println(request.getSession().getAttribute("user"));
 		ModelAndView createPage = new ModelAndView("createElection");
 		createPage.addObject("user", request.getSession().getAttribute("user"));
@@ -79,6 +97,11 @@ public class HomeController {
 	
 	@RequestMapping(value="/adminelections")
 	public ModelAndView showAdminElections(HttpServletRequest request) {
+		
+		if(request.getSession().getAttribute("user") == null) {
+			return new ModelAndView("login");
+		}
+		
 		ModelAndView adminElections = new ModelAndView("adminelections");
 		
 		User admin = (User)request.getSession().getAttribute("user");
@@ -87,6 +110,21 @@ public class HomeController {
 		adminElections.addObject("adminElectionList", electionService.getByAdmin(admin));
 		
 		return adminElections;
+	}
+	
+	@RequestMapping(value="/prompt", method=RequestMethod.GET)
+	public ModelAndView showPasswordPrompt(@RequestParam("id") Integer eid, HttpServletRequest request) {
+		
+		if(request.getSession().getAttribute("user") == null) {
+			return new ModelAndView("login");
+		}
+		
+		ModelAndView prompt = new ModelAndView("promptpassword");
+		
+		Election election =  electionService.getById(eid);
+		prompt.addObject("election", election);
+		
+		return prompt;
 	}
 	
 	

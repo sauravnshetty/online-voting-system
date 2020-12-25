@@ -32,17 +32,14 @@ public class CreateElectionController {
 	public ModelAndView registerElection(@RequestParam String name, @RequestParam Integer noOfCandidates, @RequestParam String candidateList,
 			@RequestParam String password, HttpServletRequest request) {
 		
+		if(request.getSession().getAttribute("user") == null) {
+			return new ModelAndView("login");
+		}
 		
 		System.out.println("election saved");
 		System.out.println(request.getSession().getAttribute("user"));
-		//noOfCandidates = Integer.parseInt(noOfCandidates);
 		
 		User admin = (User)request.getSession().getAttribute("user");
-		
-		//TODO add this piece to all controllers applicable
-		if(admin == null) {
-			return new ModelAndView("login");
-		}
 	
 		Election newElection = new Election();
 		newElection.setEname(name);

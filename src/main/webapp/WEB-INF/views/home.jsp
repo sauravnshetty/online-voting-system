@@ -55,7 +55,7 @@
 		    <tbody>
 			   	<c:forEach var="ele" items="${electionList}">
 			   		
-					<tr onclick="load('vote?id=${ele.getEid()}')">
+					<tr onclick="load('prompt?id=${ele.getEid()}')">
 						<td>${ele.getEid()}</td>
 						<td>${ele.getEname()}</td>
 						<td>${ele.getAdmin().getUsername()}</td>

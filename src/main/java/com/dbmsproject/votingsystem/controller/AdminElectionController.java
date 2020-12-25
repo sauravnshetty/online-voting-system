@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +28,12 @@ public class AdminElectionController {
 	CandidateService candidateService;
 	
 	@RequestMapping(value="/showresults", method=RequestMethod.GET)
-	public ModelAndView showResultPage(@RequestParam("eid") Integer eid) {
+	public ModelAndView showResultPage(@RequestParam("eid") Integer eid, HttpServletRequest request) {
+		
+		if(request.getSession().getAttribute("user") == null) {
+			return new ModelAndView("login");
+		}
+		
 		ModelAndView resultPage = new ModelAndView("result");
 		
 		Election election =  electionService.getById(eid);

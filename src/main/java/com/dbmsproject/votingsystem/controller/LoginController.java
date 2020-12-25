@@ -28,13 +28,11 @@ public class LoginController {
 	
 	@RequestMapping("/")
 	public String showLogin() {
-		System.out.println("hello world 1");
 		return "login";
 	}
 	
 	@RequestMapping("register")
 	public String showRegister() {
-		System.out.println("hello world 2");
 		return "register";
 	}
 	

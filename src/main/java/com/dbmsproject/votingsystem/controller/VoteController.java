@@ -36,6 +36,11 @@ public class VoteController {
 
 	@RequestMapping(value="/savevote", method=RequestMethod.GET)
 	public ModelAndView saveVote(@RequestParam("eid") Integer eid, @RequestParam("cid") String cid, HttpServletRequest request) {
+		
+		if(request.getSession().getAttribute("user") == null) {
+			return new ModelAndView("login");
+		}
+		
 		ModelAndView votePageUpdate = new ModelAndView("vote");
 		
 		Election election = electionService.getById(eid);
