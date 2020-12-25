@@ -20,6 +20,10 @@
 	color: red;
 }
 
+.success-font {
+	color: green;
+}
+
 .intro-section {
 	background-color : #764abc;
     background-size:100% 100%;
@@ -78,3 +82,7 @@
   content: "\e008";
 }
 
+.full-width {
+	width: 100%;
+	max-width: 100%;
+}

@@ -26,4 +26,8 @@ public class ElectionService {
 	public List<Election> getByAdmin(User admin) {
 		return (List<Election>)electionRepo.findByAdmin(admin);
 	}
+	
+	public Election getById(Integer eid) {
+		return electionRepo.findById(eid).orElse(new Election());
+	}
 }

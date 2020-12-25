@@ -28,11 +28,20 @@ public class Voter {
 	@ManyToOne
 	@JoinColumn(name="candidateid")
 	private User candidate;
-
-	public Voter(CandidateVoterId voterId, @NotNull User cid) {
+	
+	public Voter()
+	{
+		this.voterId = null;
+		this.candidate = null;
+		this.voter = null;
+		this.election = null;
+	}
+	public Voter(CandidateVoterId voterId, @NotNull User cid, User voter,Election election) {
 		super();
 		this.voterId = voterId;
 		this.candidate = cid;
+		this.voter = voter;
+		this.election = election;
 	}
 
 	public CandidateVoterId getVoterId() {

@@ -69,5 +69,22 @@ public class Candidate {
 		this.noOfVotes = noOfVotes;
 	}
 
+	public User getCandidateUser() {
+		return candidateUser;
+	}
+
+	public void setCandidateUser(User candidateUser) {
+		this.candidateUser = candidateUser;
+	}
+
+	public Election getElection() {
+		return election;
+	}
+
+	public void setElection(Election election) {
+		this.election = election;
+	}
+
+	
 	
 }
