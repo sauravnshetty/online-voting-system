@@ -1,5 +1,8 @@
 package com.dbmsproject.votingsystem.controller;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +29,7 @@ public class HomeController {
 	CandidateService candidateService;
 
 	@RequestMapping(value="/vote", method=RequestMethod.GET)
-	public ModelAndView showVotePage(@RequestParam("id") Integer eid) {
+	public ModelAndView showVotePage(@RequestParam("id") Integer eid, HttpServletRequest request) {
 		ModelAndView electionView = new ModelAndView();
 		
 		Election election =  electionService.getById(eid);
@@ -38,6 +41,28 @@ public class HomeController {
 			electionView.setViewName("vote");
 		}
 		else {
+			Collections.sort(candidateList, new SortByVotes());
+			
+			List<Candidate> winners = new ArrayList<Candidate>();
+			List<Candidate> others = new ArrayList<Candidate>();
+
+			for(Candidate cd : candidateList) {
+				System.out.println(cd);
+			}
+			
+			int maxvotes = candidateList.get(0).getNoOfVotes();
+			for(int i = 0; i < candidateList.size(); i++) {
+				if(candidateList.get(i).getNoOfVotes() == maxvotes) {
+					winners.add(candidateList.get(i));
+				}
+				else {
+					others.add(candidateList.get(i));
+				}
+			}
+			
+			electionView.addObject("winners", winners);
+			electionView.addObject("others", others);
+
 			electionView.setViewName("result");
 		}
 		
@@ -63,4 +88,7 @@ public class HomeController {
 		
 		return adminElections;
 	}
+	
+	
 }
+
