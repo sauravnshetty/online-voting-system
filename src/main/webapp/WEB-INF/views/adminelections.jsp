@@ -36,6 +36,7 @@
 			    <tr>
 			      <th scope="col">#</th>
 			      <th scope="col">Election Name</th>
+			      <th scope="col">Status</th>
 			      <th scope="col"></th>
 			    </tr>
 			</thead>			   
@@ -44,6 +45,14 @@
 					<tr>
 						<td>${ele.getEid()}</td>
 						<td>${ele.getEname()}</td>
+						<c:choose>
+						    <c:when test="${ele.geteStatus() == true}">
+						        <td class="success-font">Ongoing</td>
+						    </c:when>    
+						    <c:otherwise>
+						        <td class="error-font">Ended</td>
+						    </c:otherwise>
+						</c:choose>
 						<td><button type="button" onclick="load('showresults?eid=${ele.getEid()}')" class="btn btn-outline-success">Show Results</button></td>
 					</tr>
 				</c:forEach>
