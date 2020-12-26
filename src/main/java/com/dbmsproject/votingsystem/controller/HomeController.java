@@ -127,6 +127,20 @@ public class HomeController {
 		return prompt;
 	}
 	
+	@RequestMapping(value="/home")
+	public ModelAndView showHomePage(HttpServletRequest request) {
+		ModelAndView home = new ModelAndView("home");
+		
+		if(request.getSession().getAttribute("user") == null) {
+			return new ModelAndView("login");
+		}
+		
+		home.addObject("home", (User)request.getSession().getAttribute("user"));
+		home.addObject("electionList", electionService.getAllElections());
+		
+		return home;
+	}
+	
 	
 }
 

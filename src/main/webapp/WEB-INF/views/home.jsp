@@ -20,20 +20,19 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light">
+	<nav class="navbar navbar-expand-lg navbar-dark menubar" style="position:sticky;">
 		<div class="container">
-		  <a class="navbar-brand" href="#">Voting System</a>
+		  <a class="navbar-brand" href="/home">VoteHub</a>
 		  <form class="justify-content-end">
-		  	<span class="show-username">${user.name}</span>
-		    <!-- <button class="btn btn-outline-success me-2" style="margin-right: 10px" type="button">Main button</button> -->
-		    <button class="btn btn-sm btn-outline-secondary" onclick="load('/')" style="margin-right: 10px" type="button">Logout</button>
+		  	<span class="show-username text-white">${user.name}</span>
+		    <button class="btn btn-sm btn-outline-success text-white" onclick="load('/')" style="margin-right: 10px" type="button">Logout</button>
 		  </form>
 	  	</div>
 	</nav>
 	
 	<div class="intro-section">
-		<div class="intro-content">
-			<p class="intro-quote">Your vote matters!</p>
+		<div>
+			<p class="intro-quote">"The ignorance of one voter in a democracy impairs the security of all" - John F. Kennedy</p>
 			<br>
 			<div class="intro-button">
 				<button type="button" onclick="load('create')" class="btn btn-primary btn-lg">Create Election</button>

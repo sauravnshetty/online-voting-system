@@ -28,13 +28,11 @@
 </head>
 
 <body>
-
-	<nav class="navbar navbar-expand-lg navbar-light">
+	<nav class="navbar navbar-expand-lg navbar-dark menubar" style="position:sticky;">
 		<div class="container">
-		  <a class="navbar-brand" href="#">Voting System</a>
+		  <a class="navbar-brand brand-style" href="/home">VoteHub</a>
 		  <form class="justify-content-end">
-		    <!-- <button class="btn btn-outline-success me-2" style="margin-right: 10px" type="button">Main button</button> -->
-		    <button class="btn btn-sm btn-outline-secondary" onclick="load('register')" style="margin-right: 10px" type="button">Register</button>
+		    <button class="btn btn-sm btn-outline-success text-white" onclick="load('register')" style="margin-right: 10px" type="button">Register</button>
 		  </form>
 	  	</div>
 	</nav>

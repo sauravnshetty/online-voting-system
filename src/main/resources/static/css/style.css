@@ -1,19 +1,10 @@
-.body {
+body {
 	margin: 0;
 	padding: 0;
 }
-.menubar{
-	position: fixed;
-    /*  padding: 10px 0px 10px 0px;*/
-    max-width: 100%;
-    width: 100%;
-    font-family: pt sans narrow,sans-serif;
-    font-weight: 550;
-    font-size: 16px;
-    background: blue;
-    text-decoration: none;
-    text-transform: uppercase;
-    z-index: 99;
+
+.text-white {
+	color: white;
 }
 
 .error-font {
@@ -25,9 +16,11 @@
 }
 
 .intro-section {
-	background-color : #764abc;
+	background: url(/background.jpg);
+	background-size: cover;
+	/*background-color : #764abc;*/
     background-size:100% 100%;
-    height:55vh;
+    height:70vh;
     z-index: -1;
     display:flex;
     flex-direction : column;
@@ -36,6 +29,7 @@
 }
 
 .intro-quote {
+	width: 30rem;
 	font-size: 1.5rem;
     font-family :  'Ubuntu', sans-serif;
     margin-right: auto;
@@ -44,12 +38,9 @@
     color : white;
 }
 
-.intro-content {
-
-}
 .intro-button {
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 20%;
+    margin-left: 20%;
     display: flex;
 	flex-direction: column;
     justify-content: space-around;
@@ -85,4 +76,15 @@
 .full-width {
 	width: 100%;
 	max-width: 100%;
+}
+
+.menubar{
+	position: sticky;
+	width: 100%;
+    background-color: #39424e;
+    text-decoration: bold;
+}
+
+.brand-style {
+	text-decoration: bold;
 }
