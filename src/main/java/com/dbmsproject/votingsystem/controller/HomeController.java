@@ -43,6 +43,7 @@ public class HomeController {
 			electionView.setViewName("promptpassword");
 			String msg = "Password Incorrect";
 			electionView.addObject("msg", msg);
+			electionView.addObject("election", election);
 			return electionView;
 		}
 		
