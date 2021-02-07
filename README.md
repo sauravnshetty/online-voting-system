@@ -11,11 +11,11 @@ Any device that can run the Java Virtual Machine (JVM) and a suitable web browse
 
 ## Software Requirements
 
--> JDK 1.8 or later
--> Maven 3.2+
--> MySQL version 5.6 or better
--> You can also import the code straight into your IDE using:
-	-> Spring Tool Suite (STS), which is available in spring.io
+- JDK 1.8 or later
+- Maven 3.2+
+- MySQL version 5.6 or better
+- You can also import the code straight into your IDE using:
+	- Spring Tool Suite (STS), which is available in spring.io
 
 ## Setting up the database
 
@@ -23,9 +23,11 @@ Since the database is not uploaded online, you will have to create one using mys
 
 To create a new database, run the following commands at the mysql prompt:
 
-```mysql> create database votingsystem; -- Creates the new database```
-```mysql> create user 'springuser'@'%' identified by 'password'; -- Creates the user```
-```mysql> grant all on db_example.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database```
+```
+mysql> create database votingsystem; -- Creates the new database
+mysql> create user 'springuser'@'%' identified by 'password'; -- Creates the user
+mysql> grant all on db_example.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
+```
 
 'springuser' and 'password' can be changed to your own if needed.
 The database name can also be changed to your own.
@@ -34,15 +36,19 @@ Path to application.properties: votingsystem/src/main/resources/application.prop
 
 To mention changes in application.properties file change the following lines:
 
-```spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/votingsystem```
-```spring.datasource.username=springuser```
-```spring.datasource.password=password```
+```
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/votingsystem
+spring.datasource.username=springuser
+spring.datasource.password=password
+```
 
 Change the above lines to:
 
-```spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/your_database_name```
-```spring.datasource.username=your_user_name```
-```spring.datasource.password=your_password```
+```
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/your_database_name
+spring.datasource.username=your_user_name
+spring.datasource.password=your_password
+```
 
 
 ## Running the application
