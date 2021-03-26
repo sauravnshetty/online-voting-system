@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 
-@Entity
+@Entity(name="users")
 public class User {
 
 	@Id
