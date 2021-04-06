@@ -14,6 +14,8 @@ public class RegisterController {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private MyPasswordEncoder encoder;
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView registerUser(User newUser) {
@@ -34,6 +36,11 @@ public class RegisterController {
 			registerPage.addObject("msg", msg);
 			return registerPage; 
 		}
+		
+		System.out.println("while registering: " + newUser.getPassword());
+		
+		String encodedPassword = encoder.getPasswordEncoder().encode(newUser.getPassword());
+		newUser.setPassword(encodedPassword);
 		
 		userService.save(newUser);
 		System.out.println(newUser);

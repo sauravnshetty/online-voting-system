@@ -28,6 +28,9 @@ public class CreateElectionController {
 	@Autowired
 	CandidateService candidateService;
 	
+	@Autowired
+	MyPasswordEncoder encoder;
+	
 	@RequestMapping(value = "/saveelection", method = RequestMethod.POST)
 	public ModelAndView registerElection(@RequestParam String name, @RequestParam Integer noOfCandidates, @RequestParam String candidateList,
 			@RequestParam String password, HttpServletRequest request) {
@@ -40,10 +43,11 @@ public class CreateElectionController {
 		System.out.println(request.getSession().getAttribute("user"));
 		
 		User admin = (User)request.getSession().getAttribute("user");
+		String encodedPassword = encoder.getPasswordEncoder().encode(password);
 	
 		Election newElection = new Election();
 		newElection.setEname(name);
-		newElection.setePassword(password);
+		newElection.setePassword(encodedPassword);
 		newElection.setAdmin(admin);
 		newElection.seteStatus(true);
 		newElection.setNoOfCandidates(noOfCandidates);

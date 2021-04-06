@@ -27,6 +27,9 @@ public class HomeController {
 	@Autowired
 	CandidateService candidateService;
 
+	@Autowired
+	MyPasswordEncoder encoder;
+	
 	@RequestMapping(value="/vote", method=RequestMethod.POST)
 	public ModelAndView showVotePage(@RequestParam("id") Integer eid, @RequestParam("password") String password, HttpServletRequest request) {
 		
@@ -37,8 +40,9 @@ public class HomeController {
 		ModelAndView electionView = new ModelAndView();
 		
 		Election election =  electionService.getById(eid);
+		Boolean passwordMatch = encoder.getPasswordEncoder().matches(password, election.getePassword());
 		
-		if(!election.getePassword().equals(password)) {
+		if(!passwordMatch) {
 			electionView.setViewName("promptpassword");
 			String msg = "Password Incorrect";
 			electionView.addObject("msg", msg);

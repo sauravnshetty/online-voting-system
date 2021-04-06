@@ -23,13 +23,17 @@ public class LoginController {
 	private ElectionService electionService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private MyPasswordEncoder encoder;
 	
+//	@RequestMapping("/login")
 	@RequestMapping("/")
-	public String showLogin() {
+	public String showLogin(HttpServletRequest request) {
+		request.getSession().invalidate();
 		return "login";
 	}
 	
-	@RequestMapping("register")
+	@RequestMapping("/register")
 	public String showRegister() {
 		return "register";
 	}
@@ -39,13 +43,19 @@ public class LoginController {
 		ModelAndView home = new ModelAndView("home");
 		
 		User user = userService.findById(username);
+		Boolean passwordMatch = encoder.getPasswordEncoder().matches(password, user.getPassword());
 		String msg;
+		
+		//debug
+		System.out.println("while logging in: " + password);
+		System.out.println(user);
+		
 		if(user.getUsername() == null) {
 			msg = "Invalid User";
 			System.out.println(msg);
 			return new ModelAndView("login").addObject("msg", msg);
 		}
-		else if(!user.getUsername().equals(username) || !user.getPassword().equals(password)) {
+		else if(!user.getUsername().equals(username) || !passwordMatch) {
 			msg = "Invalid Username/Password";
 			System.out.println(msg);
 			return new ModelAndView("login").addObject("msg", msg);
