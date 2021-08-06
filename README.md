@@ -1,5 +1,6 @@
 # online-voting-system
-A web app to create and participate in elections
+A web app to create and participate in elections.\
+[Go to app](https://ssvotehub.herokuapp.com/)
 
 ## Introduction
 
